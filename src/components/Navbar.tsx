@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { PORTFOLIO_DATA } from "@/data/portfolioData";
 import { Download, Menu, X, ArrowUpRight, Code2 } from "lucide-react";
+import { ThemeToggle } from "./ThemeToggle";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -93,6 +94,8 @@ export function Navbar() {
             <span>Available for Hire</span>
           </div>
 
+          <ThemeToggle />
+
           <a
             href={PORTFOLIO_DATA.personal.cvPath}
             download="Mina_Joseph_Full_Stack_CV.pdf"
@@ -122,7 +125,10 @@ export function Navbar() {
               <span className="w-2 h-2 rounded-full bg-[#27a644] animate-pulse"></span>
               <span className="text-xs text-[#8a8f98]">Available for projects</span>
             </div>
-            <span className="text-xs font-mono text-[#5e6ad2]">Cairo, Egypt</span>
+            <div className="flex items-center gap-2">
+              <ThemeToggle />
+              <span className="text-xs font-mono text-[#5e6ad2]">Cairo</span>
+            </div>
           </div>
 
           <div className="flex flex-col gap-1 py-1">

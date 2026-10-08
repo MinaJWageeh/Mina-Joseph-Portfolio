@@ -10,7 +10,7 @@ import { Footer } from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#010102] text-[#f7f8f8] relative selection:bg-[#5e6ad2] selection:text-white">
+    <main className="min-h-screen bg-[var(--canvas)] text-[var(--ink)] relative selection:bg-[#5e6ad2] selection:text-white transition-colors duration-200">
       <Navbar />
       <Hero />
       <FeaturedProjects />

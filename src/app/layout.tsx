@@ -45,6 +45,8 @@ export const viewport = {
   initialScale: 1,
 };
 
+import { ThemeProvider } from "@/context/ThemeContext";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -73,15 +75,26 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className="dark scroll-smooth">
+    <html lang="en" className="dark scroll-smooth" suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                var theme = localStorage.getItem('mj_theme') || 'dark';
+                document.documentElement.setAttribute('data-theme', theme);
+                document.documentElement.classList.add(theme);
+              } catch (e) {}
+            `,
+          }}
+        />
       </head>
-      <body className="bg-[#010102] text-[#f7f8f8] antialiased selection:bg-[#5e6ad2] selection:text-white">
-        {children}
+      <body className="antialiased selection:bg-[#5e6ad2] selection:text-white transition-colors duration-200">
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   );
