@@ -63,10 +63,10 @@ Crafted following the **Linear Design System**:
 
 ```bash
 # Clone the repository
-git clone https://github.com/MinaJWageeh/Mina-Joseph.git
+git clone https://github.com/MinaJWageeh/Mina-Joseph-Portfolio.git
 
 # Enter project directory
-cd Mina-Joseph
+cd Mina-Joseph-Portfolio
 
 # Install dependencies with pnpm
 pnpm install
