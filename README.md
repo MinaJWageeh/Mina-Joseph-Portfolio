@@ -2,11 +2,14 @@
 
 > High-performance, award-level personal developer portfolio built for **Mina Joseph Wageh** (Full-Stack Developer & Systems Software Engineer).
 
+[![GitHub Pages](https://img.shields.io/badge/Live_Site-GitHub_Pages-27a644?style=for-the-badge&logo=github)](https://minajwageeh.github.io/Mina-Joseph-Portfolio/)
 [![Next.js](https://img.shields.io/badge/Next.js-16-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-19-blue?style=for-the-badge&logo=react)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-CSS%204-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
 [![Linear Design](https://img.shields.io/badge/Design_System-Linear-5e6ad2?style=for-the-badge)](https://linear.app)
+
+> 🌐 **Live Website:** [https://minajwageeh.github.io/Mina-Joseph-Portfolio/](https://minajwageeh.github.io/Mina-Joseph-Portfolio/)
 
 ---
 

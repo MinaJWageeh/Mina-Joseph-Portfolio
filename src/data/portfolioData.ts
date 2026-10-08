@@ -74,7 +74,7 @@ export const PORTFOLIO_DATA = {
     linkedinHandle: "minajoseph10",
     github: "https://github.com/MinaJWageeh",
     githubHandle: "MinaJWageeh",
-    cvPath: "/Mina_Joseph_Wageh_Full_Stack_CV_ATS.pdf",
+    cvPath: `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/Mina_Joseph_Wageh_Full_Stack_CV_ATS.pdf`,
     statusText: "Available for Full-Time Roles & High-Impact Contracts",
     headline: "Architecting high-performance web systems, real-time engines, and distributed platforms with mathematical rigor.",
     bioLead: "Full-Stack Engineer with an Honors Electrical Engineering foundation from Benha University. I combine systems-level engineering discipline with cutting-edge web craftsmanship.",
