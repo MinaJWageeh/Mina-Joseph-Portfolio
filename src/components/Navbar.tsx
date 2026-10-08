@@ -45,8 +45,8 @@ export function Navbar() {
         aria-label="Main Navigation"
         className={`w-full max-w-6xl transition-all duration-300 rounded-full px-4 sm:px-6 py-2.5 flex items-center justify-between ${
           scrolled
-            ? "glass-dock shadow-xl shadow-black/30 border border-[#27313d]"
-            : "bg-[#1d242d]/60 backdrop-blur-md border border-[#27313d]/60"
+            ? "glass-dock liquid-glass shadow-xl shadow-black/30"
+            : "glass-dock liquid-glass"
         }`}
       >
         {/* Brand logo */}
@@ -119,7 +119,7 @@ export function Navbar() {
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden fixed inset-x-4 top-20 bg-[#1d242d] border border-[#27313d] rounded-2xl p-5 shadow-2xl backdrop-blur-2xl z-50 flex flex-col gap-3">
+        <div className="md:hidden fixed inset-x-4 top-20 liquid-glass rounded-2xl p-5 shadow-2xl z-50 flex flex-col gap-3">
           <div className="flex items-center justify-between pb-3 border-b border-[#27313d]">
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-[#84b8ad] animate-pulse"></span>

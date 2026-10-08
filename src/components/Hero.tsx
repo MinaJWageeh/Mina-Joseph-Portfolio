@@ -116,7 +116,7 @@ export function Hero() {
         </div>
 
         {/* Interactive Live Terminal */}
-        <div className="w-full max-w-4xl text-left rounded-2xl bg-[#1d242d] border border-[#27313d] shadow-2xl shadow-black/40 overflow-hidden mb-12">
+        <div className="liquid-glass w-full max-w-4xl text-left rounded-2xl shadow-2xl shadow-black/40 overflow-hidden mb-12">
           {/* Terminal Window Header */}
           <div className="flex items-center justify-between px-4 py-3 bg-[#252e3a] border-b border-[#27313d]">
             <div className="flex items-center gap-2">
@@ -264,7 +264,7 @@ export function Hero() {
           {PORTFOLIO_DATA.personal.stats.map((stat, idx) => (
             <div
               key={idx}
-              className="p-4 rounded-xl bg-[#1d242d] border border-[#27313d] hover:border-[#354353] transition-all hover:-translate-y-1 hover:shadow-lg flex flex-col items-center justify-center text-center group"
+              className="liquid-glass liquid-glass-card p-4 rounded-xl transition-all hover:-translate-y-1 hover:shadow-lg flex flex-col items-center justify-center text-center group"
             >
               <span className="text-xl sm:text-2xl font-bold tracking-tight text-[#84b8ad] mb-1 group-hover:scale-105 transition-transform">
                 {stat.value}

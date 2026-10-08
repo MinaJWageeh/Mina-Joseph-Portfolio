@@ -38,7 +38,7 @@ export function ExperienceTimeline() {
             {/* Timeline Dot */}
             <div className="absolute -left-[31px] sm:-left-[47px] top-1.5 w-4 h-4 rounded-full bg-[#1d242d] border-2 border-[#84b8ad] group-hover:scale-125 transition-transform"></div>
 
-            <div className="p-6 sm:p-8 rounded-2xl bg-[#1d242d] border border-[#27313d] hover:border-[#354353] transition-colors space-y-4">
+            <div className="liquid-glass liquid-glass-card p-6 sm:p-8 rounded-2xl space-y-4">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#27313d] pb-4">
                 <div>
                   <div className="flex items-center gap-2.5">
@@ -93,7 +93,7 @@ export function ExperienceTimeline() {
         <div className="relative group">
           <div className="absolute -left-[31px] sm:-left-[47px] top-1.5 w-4 h-4 rounded-full bg-[#1d242d] border-2 border-[#84b8ad] group-hover:scale-125 transition-transform"></div>
 
-          <div className="p-6 sm:p-8 rounded-2xl bg-[#1d242d] border border-[#27313d] hover:border-[#354353] transition-colors space-y-4">
+          <div className="liquid-glass liquid-glass-card p-6 sm:p-8 rounded-2xl space-y-4">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#27313d] pb-4">
               <div>
                 <div className="flex items-center gap-2.5">
@@ -143,7 +143,7 @@ export function ExperienceTimeline() {
       </div>
 
       {/* Certifications and Specialized Tracks Bento */}
-      <div className="mt-16 rounded-2xl bg-[#1d242d] border border-[#27313d] p-6 sm:p-8">
+      <div className="liquid-glass mt-16 rounded-2xl p-6 sm:p-8">
         <div className="flex items-center gap-2.5 mb-6">
           <FileCheck2 className="w-5 h-5 text-[#84b8ad]" />
           <h3 className="text-lg font-bold text-[#e9e7e1] tracking-tight">

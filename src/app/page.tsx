@@ -7,6 +7,7 @@ import { ExperienceTimeline } from "@/components/ExperienceTimeline";
 import { ServicesSection } from "@/components/ServicesSection";
 import { ContactSection } from "@/components/ContactSection";
 import { Footer } from "@/components/Footer";
+import { ScrollReveal } from "@/components/ScrollReveal";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       <ServicesSection />
       <ContactSection />
       <Footer />
+      <ScrollReveal />
     </main>
   );
 }

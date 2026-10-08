@@ -71,7 +71,7 @@ export function SkillsMatrix() {
       </div>
 
       {/* Active Category Display */}
-      <div className="rounded-2xl bg-[#1d242d] border border-[#27313d] p-6 sm:p-8 mb-12">
+      <div className="liquid-glass rounded-2xl p-6 sm:p-8 mb-12">
         <div className="flex flex-col md:flex-row md:items-center justify-between pb-6 mb-6 border-b border-[#27313d] gap-4">
           <div>
             <div className="flex items-center gap-2 mb-1">
@@ -129,7 +129,7 @@ export function SkillsMatrix() {
       </div>
 
       {/* Interactive System Architecture Blueprint */}
-      <div className="rounded-2xl bg-[#1d242d] border border-[#27313d] p-6 sm:p-8">
+      <div className="liquid-glass rounded-2xl p-6 sm:p-8">
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-2">
             <Layers className="w-4 h-4 text-[#84b8ad]" />

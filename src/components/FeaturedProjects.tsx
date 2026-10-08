@@ -75,7 +75,7 @@ export function FeaturedProjects() {
         {filteredProjects.map((project) => (
           <div
             key={project.id}
-            className="group rounded-2xl bg-[#1d242d] border border-[#27313d] hover:border-[#354353] transition-all duration-300 flex flex-col overflow-hidden hover:shadow-2xl hover:shadow-black/30"
+            className="group liquid-glass liquid-glass-card rounded-2xl transition-all duration-300 flex flex-col overflow-hidden hover:shadow-2xl hover:shadow-black/30"
           >
             {/* Visual Interactive Mockup Header */}
             <div className="p-5 bg-[#151b22] border-b border-[#27313d] relative overflow-hidden">

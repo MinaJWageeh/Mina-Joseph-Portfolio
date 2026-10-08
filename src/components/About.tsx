@@ -39,7 +39,7 @@ export function About() {
       {/* Main Narrative & Bento Layout */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Core Narrative Card - 2 cols on desktop */}
-        <div className="lg:col-span-2 p-6 sm:p-8 rounded-2xl bg-[#1d242d] border border-[#27313d] flex flex-col justify-between space-y-6">
+        <div className="liquid-glass liquid-glass-card lg:col-span-2 p-6 sm:p-8 rounded-2xl flex flex-col justify-between space-y-6">
           <div className="space-y-4">
             <div className="flex items-center gap-2 text-xs font-mono text-[#84b8ad]">
               <span>[01] THE JOURNEY &amp; MINDSET</span>
@@ -82,7 +82,7 @@ export function About() {
         {/* Right Column Bento Cards */}
         <div className="space-y-6">
           {/* Profile Card with Photo */}
-          <div className="p-5 rounded-2xl bg-[#1d242d] border border-[#27313d] flex items-center gap-4 group hover:border-[#354353] transition-colors">
+          <div className="liquid-glass liquid-glass-card p-5 rounded-2xl flex items-center gap-4 group">
             <div className="relative w-20 h-20 rounded-xl overflow-hidden border border-[#27313d] shrink-0 bg-[#151b22]">
               <Image
                 src={personal.profilePhoto}
@@ -111,7 +111,7 @@ export function About() {
           </div>
 
           {/* Download Official CV Card */}
-          <div className="p-6 rounded-2xl bg-[#1d242d] border border-[#27313d] flex flex-col justify-between space-y-4">
+          <div className="liquid-glass liquid-glass-card p-6 rounded-2xl flex flex-col justify-between space-y-4">
             <div>
               <div className="flex items-center justify-between mb-3">
                 <span className="text-xs font-mono text-[#aab5c2]">CURRICULUM VITAE</span>
@@ -138,7 +138,7 @@ export function About() {
           </div>
 
           {/* Languages & Global Communication */}
-          <div className="p-6 rounded-2xl bg-[#1d242d] border border-[#27313d] space-y-4">
+          <div className="liquid-glass liquid-glass-card p-6 rounded-2xl space-y-4">
             <div className="flex items-center gap-2 text-xs font-mono text-[#aab5c2]">
               <Globe className="w-3.5 h-3.5 text-[#84b8ad]" />
               <span>COMMUNICATION &amp; LANGUAGES</span>

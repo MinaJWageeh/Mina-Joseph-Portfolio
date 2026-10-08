@@ -103,7 +103,7 @@ export function ContactSection() {
         {/* Contact Info Bento Column - 2 cols on desktop */}
         <div className="lg:col-span-2 space-y-4">
           {/* Verified Direct Email Card */}
-          <div className="p-6 rounded-2xl bg-[#1d242d] border border-[#27313d] space-y-3">
+          <div className="liquid-glass liquid-glass-card p-6 rounded-2xl space-y-3">
             <div className="flex items-center justify-between">
               <span className="text-xs font-mono text-[#aab5c2]">VERIFIED EMAIL</span>
               <button
@@ -136,7 +136,7 @@ export function ContactSection() {
           </div>
 
           {/* Verified Phone & WhatsApp */}
-          <div className="p-6 rounded-2xl bg-[#1d242d] border border-[#27313d] space-y-3">
+          <div className="liquid-glass liquid-glass-card p-6 rounded-2xl space-y-3">
             <div className="flex items-center justify-between">
               <span className="text-xs font-mono text-[#aab5c2]">PHONE &amp; WHATSAPP</span>
               <button
@@ -176,7 +176,7 @@ export function ContactSection() {
           </div>
 
           {/* Location & Cairo Live Clock */}
-          <div className="p-6 rounded-2xl bg-[#1d242d] border border-[#27313d] space-y-2">
+          <div className="liquid-glass liquid-glass-card p-6 rounded-2xl space-y-2">
             <div className="flex items-center justify-between text-xs font-mono text-[#aab5c2]">
               <span>BASE LOCATION</span>
               <div className="flex items-center gap-1.5 text-[#e9e7e1]">
@@ -198,7 +198,7 @@ export function ContactSection() {
               href={personal.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-4 rounded-xl bg-[#1d242d] border border-[#27313d] hover:border-[#354353] transition-colors flex items-center gap-3 group"
+              className="liquid-glass liquid-glass-card p-4 rounded-xl flex items-center gap-3 group"
             >
               <GithubIcon className="w-5 h-5 text-[#aab5c2] group-hover:text-[#e9e7e1] transition-colors" />
               <div>
@@ -213,7 +213,7 @@ export function ContactSection() {
               href={personal.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-4 rounded-xl bg-[#1d242d] border border-[#27313d] hover:border-[#354353] transition-colors flex items-center gap-3 group"
+              className="liquid-glass liquid-glass-card p-4 rounded-xl flex items-center gap-3 group"
             >
               <LinkedinIcon className="w-5 h-5 text-[#aab5c2] group-hover:text-[#e9e7e1] transition-colors" />
               <div>
@@ -227,7 +227,7 @@ export function ContactSection() {
         </div>
 
         {/* High-Conversion Contact Form - 3 cols on desktop */}
-        <div className="lg:col-span-3 rounded-2xl bg-[#1d242d] border border-[#27313d] p-6 sm:p-8 flex flex-col justify-between">
+        <div className="liquid-glass lg:col-span-3 rounded-2xl p-6 sm:p-8 flex flex-col justify-between">
           <form onSubmit={handleSubmit} className="space-y-5">
             <div>
               <h3 className="text-xl font-bold text-[#e9e7e1] tracking-tight mb-1">

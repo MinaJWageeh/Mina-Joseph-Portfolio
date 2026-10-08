@@ -49,7 +49,7 @@ export function ServicesSection() {
         {PORTFOLIO_DATA.services.map((svc) => (
           <div
             key={svc.id}
-            className="rounded-2xl bg-[#1d242d] border border-[#27313d] hover:border-[#354353] p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:shadow-black group"
+            className="liquid-glass liquid-glass-card rounded-2xl p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:shadow-black group"
           >
             <div className="space-y-4">
               <div className="w-10 h-10 rounded-xl bg-[#252e3a] border border-[#27313d] flex items-center justify-center">
