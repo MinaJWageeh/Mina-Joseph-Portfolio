@@ -63,6 +63,8 @@ export interface ServiceItem {
   stack: string[];
 }
 
+import { getAssetPath } from "@/lib/assets";
+
 export const PORTFOLIO_DATA = {
   personal: {
     name: "Mina Joseph Wageh",
@@ -74,7 +76,8 @@ export const PORTFOLIO_DATA = {
     linkedinHandle: "minajoseph10",
     github: "https://github.com/MinaJWageeh",
     githubHandle: "MinaJWageeh",
-    cvPath: `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/Mina_Joseph_Wageh_Full_Stack_CV_ATS.pdf`,
+    profilePhoto: getAssetPath("/mina-joseph.jpg"),
+    cvPath: getAssetPath("/Mina_Joseph_Wageh_Full_Stack_CV_ATS.pdf"),
     statusText: "Available for Full-Time Roles & High-Impact Contracts",
     headline: "Architecting high-performance web systems, real-time engines, and distributed platforms with mathematical rigor.",
     bioLead: "Full-Stack Engineer with an Honors Electrical Engineering foundation from Benha University. I combine systems-level engineering discipline with cutting-edge web craftsmanship.",

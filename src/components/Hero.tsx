@@ -47,7 +47,7 @@ export function Hero() {
           <div className="portrait-glow rounded-3xl p-1 bg-gradient-to-b from-[#23252a] to-[#0f1011]">
             <div className="relative w-28 h-28 sm:w-36 sm:h-36 rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-[#0f1011]">
               <Image
-                src="/mina-joseph.jpg"
+                src={PORTFOLIO_DATA.personal.profilePhoto}
                 alt="Mina Joseph Wageh"
                 fill
                 priority

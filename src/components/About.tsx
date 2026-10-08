@@ -85,7 +85,7 @@ export function About() {
           <div className="p-5 rounded-2xl bg-[#0f1011] border border-[#23252a] flex items-center gap-4 group hover:border-[#3e3e44] transition-colors">
             <div className="relative w-20 h-20 rounded-xl overflow-hidden border border-white/10 shrink-0 bg-[#141516]">
               <Image
-                src="/mina-joseph.jpg"
+                src={personal.profilePhoto}
                 alt="Mina Joseph Wageh"
                 fill
                 sizes="80px"
