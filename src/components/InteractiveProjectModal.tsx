@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { Project } from "@/data/portfolioData";
-import { X, ExternalLink, CheckCircle2, Cpu, Database, Server, Terminal, Code2 } from "lucide-react";
+import { X, CheckCircle2, Server, Code2 } from "lucide-react";
 import { GithubIcon } from "./Icons";
 
 interface ProjectModalProps {
@@ -11,17 +11,57 @@ interface ProjectModalProps {
 }
 
 export function InteractiveProjectModal({ project, onClose }: ProjectModalProps) {
+  const modalRef = useRef<HTMLDivElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+
   useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
-    };
-    if (project) {
-      document.body.style.overflow = "hidden";
-      window.addEventListener("keydown", handleKeyDown);
+    if (!project) return;
+
+    const previousFocus = document.activeElement as HTMLElement | null;
+    document.body.style.overflow = "hidden";
+
+    // Set focus to the close button when opened
+    if (closeButtonRef.current) {
+      closeButtonRef.current.focus();
     }
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        onClose();
+        return;
+      }
+
+      if (e.key === "Tab" && modalRef.current) {
+        const focusables = modalRef.current.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        );
+        if (focusables.length === 0) return;
+
+        const firstElement = focusables[0];
+        const lastElement = focusables[focusables.length - 1];
+
+        if (e.shiftKey) {
+          if (document.activeElement === firstElement) {
+            e.preventDefault();
+            lastElement.focus();
+          }
+        } else {
+          if (document.activeElement === lastElement) {
+            e.preventDefault();
+            firstElement.focus();
+          }
+        }
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
     return () => {
       document.body.style.overflow = "auto";
       window.removeEventListener("keydown", handleKeyDown);
+      if (previousFocus && typeof previousFocus.focus === "function") {
+        previousFocus.focus();
+      }
     };
   }, [project, onClose]);
 
@@ -35,6 +75,7 @@ export function InteractiveProjectModal({ project, onClose }: ProjectModalProps)
       className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/75 backdrop-blur-md animate-in fade-in duration-200"
     >
       <div
+        ref={modalRef}
         className="relative w-full max-w-4xl max-h-[90vh] bg-[#1d242d] border border-[#27313d] rounded-2xl shadow-2xl overflow-y-auto flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
@@ -50,8 +91,9 @@ export function InteractiveProjectModal({ project, onClose }: ProjectModalProps)
           </div>
 
           <button
+            ref={closeButtonRef}
             onClick={onClose}
-            className="p-1.5 rounded-lg text-[#aab5c2] hover:text-[#e9e7e1] hover:bg-white/10 transition-colors"
+            className="p-1.5 rounded-lg text-[#aab5c2] hover:text-[#e9e7e1] hover:bg-white/10 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#84b8ad]"
             aria-label="Close project modal"
           >
             <X className="w-5 h-5" />
@@ -173,7 +215,7 @@ export function InteractiveProjectModal({ project, onClose }: ProjectModalProps)
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#252e3a] hover:bg-[#354353] text-[#e9e7e1] text-xs font-medium border border-[#27313d] transition-colors"
+                className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#252e3a] hover:bg-[#354353] text-[#e9e7e1] text-xs font-medium border border-[#27313d] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#84b8ad]"
               >
                 <GithubIcon className="w-3.5 h-3.5" />
                 <span>View Repository</span>
@@ -181,7 +223,7 @@ export function InteractiveProjectModal({ project, onClose }: ProjectModalProps)
             )}
             <button
               onClick={onClose}
-              className="btn-accent px-4 py-2 rounded-xl bg-[#84b8ad] hover:bg-[#98c8be] text-[#11151b] text-xs font-semibold transition-colors shadow-sm"
+              className="btn-accent px-4 py-2 rounded-xl bg-[#84b8ad] hover:bg-[#98c8be] text-[#11151b] text-xs font-semibold transition-colors shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#84b8ad]"
             >
               Close
             </button>

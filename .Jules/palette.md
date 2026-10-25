@@ -1,0 +1,3 @@
+## 2025-05-18 - Focus Trapping & Management in Custom React Modal Dialogs
+**Learning:** Custom modal dialogs without third-party dialog libraries often miss basic focus management (initial focus shift, focus trapping on Tab navigation, and focus restoration on unmount). This breaks screen reader accessibility and keyboard navigation as users can tab into hidden background content.
+**Action:** Always capture `document.activeElement` before mounting modals, auto-focus the primary interactive element (e.g. close button) on mount, trap `Tab`/`Shift+Tab` cycles within the modal container, and restore focus to the trigger element when the modal is dismissed.
