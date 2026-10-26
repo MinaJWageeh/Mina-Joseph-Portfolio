@@ -309,11 +309,13 @@ export function ContactSection() {
               ></textarea>
             </div>
 
-            {statusMessage && (
-              <div className="p-3 rounded-xl bg-[#84b8ad]/10 border border-[#84b8ad]/30 text-xs text-[#84b8ad]">
-                {statusMessage}
-              </div>
-            )}
+            <div aria-live="polite" aria-atomic="true">
+              {statusMessage && (
+                <div className="p-3 rounded-xl bg-[#84b8ad]/10 border border-[#84b8ad]/30 text-xs text-[#84b8ad]">
+                  {statusMessage}
+                </div>
+              )}
+            </div>
 
             <button
               type="submit"
