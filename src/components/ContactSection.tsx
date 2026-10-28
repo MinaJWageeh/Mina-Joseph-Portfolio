@@ -108,7 +108,8 @@ export function ContactSection() {
               <span className="text-xs font-mono text-[#aab5c2]">VERIFIED EMAIL</span>
               <button
                 onClick={handleCopyEmail}
-                className="text-xs font-mono text-[#84b8ad] hover:text-[#98c8be] flex items-center gap-1 transition-colors"
+                className="text-xs font-mono text-[#84b8ad] hover:text-[#98c8be] flex items-center gap-1 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#84b8ad] rounded-md px-1"
+                aria-label="Copy email address to clipboard"
                 title="Copy email to clipboard"
               >
                 {copiedEmail ? (
@@ -141,7 +142,8 @@ export function ContactSection() {
               <span className="text-xs font-mono text-[#aab5c2]">PHONE &amp; WHATSAPP</span>
               <button
                 onClick={handleCopyPhone}
-                className="text-xs font-mono text-[#84b8ad] hover:text-[#98c8be] flex items-center gap-1 transition-colors"
+                className="text-xs font-mono text-[#84b8ad] hover:text-[#98c8be] flex items-center gap-1 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#84b8ad] rounded-md px-1"
+                aria-label="Copy phone number to clipboard"
                 title="Copy phone to clipboard"
               >
                 {copiedPhone ? (
@@ -168,7 +170,8 @@ export function ContactSection() {
                 href={`https://wa.me/201098734124`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xs font-mono text-[#84b8ad] bg-[#84b8ad]/10 border border-[#84b8ad]/30 px-2 py-0.5 rounded"
+                className="text-xs font-mono text-[#84b8ad] bg-[#84b8ad]/10 border border-[#84b8ad]/30 px-2 py-0.5 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#84b8ad]"
+                aria-label="Open WhatsApp Chat with Mina Joseph"
               >
                 WhatsApp Chat
               </a>
@@ -198,7 +201,8 @@ export function ContactSection() {
               href={personal.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="liquid-glass liquid-glass-card p-4 rounded-xl flex items-center gap-3 group"
+              className="liquid-glass liquid-glass-card p-4 rounded-xl flex items-center gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#84b8ad]"
+              aria-label={`Mina's GitHub Profile (@${personal.githubHandle})`}
             >
               <GithubIcon className="w-5 h-5 text-[#aab5c2] group-hover:text-[#e9e7e1] transition-colors" />
               <div>
@@ -213,7 +217,8 @@ export function ContactSection() {
               href={personal.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="liquid-glass liquid-glass-card p-4 rounded-xl flex items-center gap-3 group"
+              className="liquid-glass liquid-glass-card p-4 rounded-xl flex items-center gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#84b8ad]"
+              aria-label={`Mina's LinkedIn Profile (@${personal.linkedinHandle})`}
             >
               <LinkedinIcon className="w-5 h-5 text-[#aab5c2] group-hover:text-[#e9e7e1] transition-colors" />
               <div>
@@ -240,42 +245,45 @@ export function ContactSection() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="space-y-1.5">
-                <label className="text-xs font-mono text-[#e9e7e1]">
+                <label htmlFor="contact-name" className="text-xs font-mono text-[#e9e7e1]">
                   Your Name <span className="text-[#84b8ad]">*</span>
                 </label>
                 <input
+                  id="contact-name"
                   type="text"
                   required
                   placeholder="e.g. Alex Henderson"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-[#151b22] border border-[#27313d] focus:border-[#84b8ad] text-[#e9e7e1] text-xs sm:text-sm placeholder-[#7e8b9b] outline-none transition-colors"
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-[#151b22] border border-[#27313d] focus:border-[#84b8ad] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#84b8ad] text-[#e9e7e1] text-xs sm:text-sm placeholder-[#7e8b9b] transition-colors"
                 />
               </div>
 
               <div className="space-y-1.5">
-                <label className="text-xs font-mono text-[#e9e7e1]">
+                <label htmlFor="contact-email" className="text-xs font-mono text-[#e9e7e1]">
                   Your Email <span className="text-[#84b8ad]">*</span>
                 </label>
                 <input
+                  id="contact-email"
                   type="email"
                   required
                   placeholder="e.g. alex@company.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-[#151b22] border border-[#27313d] focus:border-[#84b8ad] text-[#e9e7e1] text-xs sm:text-sm placeholder-[#7e8b9b] outline-none transition-colors"
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-[#151b22] border border-[#27313d] focus:border-[#84b8ad] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#84b8ad] text-[#e9e7e1] text-xs sm:text-sm placeholder-[#7e8b9b] transition-colors"
                 />
               </div>
             </div>
 
             <div className="space-y-1.5">
-              <label className="text-xs font-mono text-[#e9e7e1]">
+              <label htmlFor="contact-service" className="text-xs font-mono text-[#e9e7e1]">
                 Project Scope / Engagement Type
               </label>
               <select
+                id="contact-service"
                 value={service}
                 onChange={(e) => setService(e.target.value)}
-                className="w-full px-3.5 py-2.5 rounded-xl bg-[#151b22] border border-[#27313d] focus:border-[#84b8ad] text-[#e9e7e1] text-xs sm:text-sm outline-none transition-colors"
+                className="w-full px-3.5 py-2.5 rounded-xl bg-[#151b22] border border-[#27313d] focus:border-[#84b8ad] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#84b8ad] text-[#e9e7e1] text-xs sm:text-sm transition-colors"
               >
                 <option value="Full-Stack Web Application (Next.js & NestJS)">
                   Full-Stack Web Application (Next.js &amp; NestJS)
@@ -296,21 +304,26 @@ export function ContactSection() {
             </div>
 
             <div className="space-y-1.5">
-              <label className="text-xs font-mono text-[#e9e7e1]">
+              <label htmlFor="contact-message" className="text-xs font-mono text-[#e9e7e1]">
                 Message &amp; Requirements <span className="text-[#84b8ad]">*</span>
               </label>
               <textarea
+                id="contact-message"
                 required
                 rows={4}
                 placeholder="Tell me about your project, timeline, budget, or engineering needs..."
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
-                className="w-full px-3.5 py-2.5 rounded-xl bg-[#151b22] border border-[#27313d] focus:border-[#84b8ad] text-[#e9e7e1] text-xs sm:text-sm placeholder-[#7e8b9b] outline-none transition-colors resize-none"
+                className="w-full px-3.5 py-2.5 rounded-xl bg-[#151b22] border border-[#27313d] focus:border-[#84b8ad] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#84b8ad] text-[#e9e7e1] text-xs sm:text-sm placeholder-[#7e8b9b] transition-colors resize-none"
               ></textarea>
             </div>
 
             {statusMessage && (
-              <div className="p-3 rounded-xl bg-[#84b8ad]/10 border border-[#84b8ad]/30 text-xs text-[#84b8ad]">
+              <div
+                role="status"
+                aria-live="polite"
+                className="p-3 rounded-xl bg-[#84b8ad]/10 border border-[#84b8ad]/30 text-xs text-[#84b8ad]"
+              >
                 {statusMessage}
               </div>
             )}
