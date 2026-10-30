@@ -268,7 +268,8 @@ export function FeaturedProjects() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="p-2 rounded-lg bg-[#252e3a] hover:bg-[#354353] border border-[#27313d] text-[#aab5c2] hover:text-[#e9e7e1] transition-colors"
-                        title="View GitHub Repository"
+                        aria-label={`View GitHub repository for ${project.title}`}
+                        title={`View GitHub repository for ${project.title}`}
                       >
                         <GithubIcon className="w-4 h-4" />
                       </a>

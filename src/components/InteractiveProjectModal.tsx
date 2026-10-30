@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { Project } from "@/data/portfolioData";
 import { X, ExternalLink, CheckCircle2, Cpu, Database, Server, Terminal, Code2 } from "lucide-react";
 import { GithubIcon } from "./Icons";
@@ -11,18 +11,57 @@ interface ProjectModalProps {
 }
 
 export function InteractiveProjectModal({ project, onClose }: ProjectModalProps) {
+  const modalRef = useRef<HTMLDivElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const previouslyFocusedElementRef = useRef<HTMLElement | null>(null);
+
   useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
-    };
     if (project) {
+      previouslyFocusedElementRef.current = document.activeElement as HTMLElement;
       document.body.style.overflow = "hidden";
+
+      // Focus close button on open
+      setTimeout(() => {
+        closeButtonRef.current?.focus();
+      }, 50);
+
+      const handleKeyDown = (e: KeyboardEvent) => {
+        if (e.key === "Escape") {
+          onClose();
+          return;
+        }
+
+        if (e.key === "Tab" && modalRef.current) {
+          const focusableElements = modalRef.current.querySelectorAll<HTMLElement>(
+            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+          );
+          if (focusableElements.length === 0) return;
+
+          const firstElement = focusableElements[0];
+          const lastElement = focusableElements[focusableElements.length - 1];
+
+          if (e.shiftKey) {
+            if (document.activeElement === firstElement) {
+              lastElement.focus();
+              e.preventDefault();
+            }
+          } else {
+            if (document.activeElement === lastElement) {
+              firstElement.focus();
+              e.preventDefault();
+            }
+          }
+        }
+      };
+
       window.addEventListener("keydown", handleKeyDown);
+
+      return () => {
+        document.body.style.overflow = "auto";
+        window.removeEventListener("keydown", handleKeyDown);
+        previouslyFocusedElementRef.current?.focus();
+      };
     }
-    return () => {
-      document.body.style.overflow = "auto";
-      window.removeEventListener("keydown", handleKeyDown);
-    };
   }, [project, onClose]);
 
   if (!project) return null;
@@ -35,6 +74,7 @@ export function InteractiveProjectModal({ project, onClose }: ProjectModalProps)
       className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/75 backdrop-blur-md animate-in fade-in duration-200"
     >
       <div
+        ref={modalRef}
         className="relative w-full max-w-4xl max-h-[90vh] bg-[#1d242d] border border-[#27313d] rounded-2xl shadow-2xl overflow-y-auto flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
@@ -50,8 +90,9 @@ export function InteractiveProjectModal({ project, onClose }: ProjectModalProps)
           </div>
 
           <button
+            ref={closeButtonRef}
             onClick={onClose}
-            className="p-1.5 rounded-lg text-[#aab5c2] hover:text-[#e9e7e1] hover:bg-white/10 transition-colors"
+            className="p-1.5 rounded-lg text-[#aab5c2] hover:text-[#e9e7e1] hover:bg-white/10 transition-colors focus-visible:ring-2 focus-visible:ring-[#84b8ad] outline-none"
             aria-label="Close project modal"
           >
             <X className="w-5 h-5" />
