@@ -1,0 +1,3 @@
+## 2026-10-09 - Accessible Form Fields and Interactive Copy Controls
+**Learning:** In dark mode and glassmorphism UI palettes, custom styled inputs and icon buttons frequently lack explicit HTML label associations and visible focus indicators. Screen readers fail to associate generic `<label>` text without `htmlFor`/`id` bindings, and keyboard users lose focus context when standard outlines are stripped without replacement focus rings (`focus-visible:ring-2`).
+**Action:** Pair every form label with matching `htmlFor` and input `id`, provide distinct focus-visible rings using the primary accent token (`#84b8ad`), announce dynamic status alerts with `role="status"`/`aria-live="polite"`, and supply dynamic `aria-label` updates on clipboard copy buttons.

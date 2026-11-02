@@ -108,8 +108,9 @@ export function ContactSection() {
               <span className="text-xs font-mono text-[#aab5c2]">VERIFIED EMAIL</span>
               <button
                 onClick={handleCopyEmail}
-                className="text-xs font-mono text-[#84b8ad] hover:text-[#98c8be] flex items-center gap-1 transition-colors"
+                className="text-xs font-mono text-[#84b8ad] hover:text-[#98c8be] flex items-center gap-1 transition-colors rounded px-1 py-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#84b8ad]"
                 title="Copy email to clipboard"
+                aria-label={copiedEmail ? "Email copied to clipboard" : "Copy email to clipboard"}
               >
                 {copiedEmail ? (
                   <>
@@ -141,8 +142,9 @@ export function ContactSection() {
               <span className="text-xs font-mono text-[#aab5c2]">PHONE &amp; WHATSAPP</span>
               <button
                 onClick={handleCopyPhone}
-                className="text-xs font-mono text-[#84b8ad] hover:text-[#98c8be] flex items-center gap-1 transition-colors"
+                className="text-xs font-mono text-[#84b8ad] hover:text-[#98c8be] flex items-center gap-1 transition-colors rounded px-1 py-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#84b8ad]"
                 title="Copy phone to clipboard"
+                aria-label={copiedPhone ? "Phone number copied to clipboard" : "Copy phone number to clipboard"}
               >
                 {copiedPhone ? (
                   <>
@@ -240,42 +242,45 @@ export function ContactSection() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="space-y-1.5">
-                <label className="text-xs font-mono text-[#e9e7e1]">
+                <label htmlFor="contact-name" className="text-xs font-mono text-[#e9e7e1]">
                   Your Name <span className="text-[#84b8ad]">*</span>
                 </label>
                 <input
+                  id="contact-name"
                   type="text"
                   required
                   placeholder="e.g. Alex Henderson"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-[#151b22] border border-[#27313d] focus:border-[#84b8ad] text-[#e9e7e1] text-xs sm:text-sm placeholder-[#7e8b9b] outline-none transition-colors"
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-[#151b22] border border-[#27313d] focus:border-[#84b8ad] focus-visible:ring-2 focus-visible:ring-[#84b8ad]/50 text-[#e9e7e1] text-xs sm:text-sm placeholder-[#7e8b9b] outline-none transition-colors"
                 />
               </div>
 
               <div className="space-y-1.5">
-                <label className="text-xs font-mono text-[#e9e7e1]">
+                <label htmlFor="contact-email" className="text-xs font-mono text-[#e9e7e1]">
                   Your Email <span className="text-[#84b8ad]">*</span>
                 </label>
                 <input
+                  id="contact-email"
                   type="email"
                   required
                   placeholder="e.g. alex@company.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-[#151b22] border border-[#27313d] focus:border-[#84b8ad] text-[#e9e7e1] text-xs sm:text-sm placeholder-[#7e8b9b] outline-none transition-colors"
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-[#151b22] border border-[#27313d] focus:border-[#84b8ad] focus-visible:ring-2 focus-visible:ring-[#84b8ad]/50 text-[#e9e7e1] text-xs sm:text-sm placeholder-[#7e8b9b] outline-none transition-colors"
                 />
               </div>
             </div>
 
             <div className="space-y-1.5">
-              <label className="text-xs font-mono text-[#e9e7e1]">
+              <label htmlFor="contact-service" className="text-xs font-mono text-[#e9e7e1]">
                 Project Scope / Engagement Type
               </label>
               <select
+                id="contact-service"
                 value={service}
                 onChange={(e) => setService(e.target.value)}
-                className="w-full px-3.5 py-2.5 rounded-xl bg-[#151b22] border border-[#27313d] focus:border-[#84b8ad] text-[#e9e7e1] text-xs sm:text-sm outline-none transition-colors"
+                className="w-full px-3.5 py-2.5 rounded-xl bg-[#151b22] border border-[#27313d] focus:border-[#84b8ad] focus-visible:ring-2 focus-visible:ring-[#84b8ad]/50 text-[#e9e7e1] text-xs sm:text-sm outline-none transition-colors"
               >
                 <option value="Full-Stack Web Application (Next.js & NestJS)">
                   Full-Stack Web Application (Next.js &amp; NestJS)
@@ -296,21 +301,26 @@ export function ContactSection() {
             </div>
 
             <div className="space-y-1.5">
-              <label className="text-xs font-mono text-[#e9e7e1]">
+              <label htmlFor="contact-message" className="text-xs font-mono text-[#e9e7e1]">
                 Message &amp; Requirements <span className="text-[#84b8ad]">*</span>
               </label>
               <textarea
+                id="contact-message"
                 required
                 rows={4}
                 placeholder="Tell me about your project, timeline, budget, or engineering needs..."
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
-                className="w-full px-3.5 py-2.5 rounded-xl bg-[#151b22] border border-[#27313d] focus:border-[#84b8ad] text-[#e9e7e1] text-xs sm:text-sm placeholder-[#7e8b9b] outline-none transition-colors resize-none"
+                className="w-full px-3.5 py-2.5 rounded-xl bg-[#151b22] border border-[#27313d] focus:border-[#84b8ad] focus-visible:ring-2 focus-visible:ring-[#84b8ad]/50 text-[#e9e7e1] text-xs sm:text-sm placeholder-[#7e8b9b] outline-none transition-colors resize-none"
               ></textarea>
             </div>
 
             {statusMessage && (
-              <div className="p-3 rounded-xl bg-[#84b8ad]/10 border border-[#84b8ad]/30 text-xs text-[#84b8ad]">
+              <div
+                role="status"
+                aria-live="polite"
+                className="p-3 rounded-xl bg-[#84b8ad]/10 border border-[#84b8ad]/30 text-xs text-[#84b8ad]"
+              >
                 {statusMessage}
               </div>
             )}
