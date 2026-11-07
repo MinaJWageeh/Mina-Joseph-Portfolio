@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Project } from "@/data/portfolioData";
-import { X, ExternalLink, CheckCircle2, Cpu, Database, Server, Terminal, Code2 } from "lucide-react";
+import { X, ExternalLink, CheckCircle2, Cpu, Database, Server, Terminal, Code2, Copy, Check } from "lucide-react";
 import { GithubIcon } from "./Icons";
 
 interface ProjectModalProps {
@@ -11,6 +11,8 @@ interface ProjectModalProps {
 }
 
 export function InteractiveProjectModal({ project, onClose }: ProjectModalProps) {
+  const [copiedSnippet, setCopiedSnippet] = useState(false);
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
@@ -24,6 +26,13 @@ export function InteractiveProjectModal({ project, onClose }: ProjectModalProps)
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, [project, onClose]);
+
+  const handleCopySnippet = () => {
+    if (!project?.codeSnippet?.code) return;
+    navigator.clipboard.writeText(project.codeSnippet.code);
+    setCopiedSnippet(true);
+    setTimeout(() => setCopiedSnippet(false), 2000);
+  };
 
   if (!project) return null;
 
@@ -129,17 +138,40 @@ export function InteractiveProjectModal({ project, onClose }: ProjectModalProps)
           {/* Code Snippet if present */}
           {project.codeSnippet && (
             <div>
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-xs font-mono text-[#aab5c2] flex items-center gap-1.5">
-                  <Code2 className="w-4 h-4 text-[#84b8ad]" />
-                  <span>{project.codeSnippet.filename}</span>
+              <div className="flex items-center justify-between mb-2 gap-2">
+                <span className="text-xs font-mono text-[#aab5c2] flex items-center gap-1.5 truncate">
+                  <Code2 className="w-4 h-4 text-[#84b8ad] shrink-0" />
+                  <span className="truncate">{project.codeSnippet.filename}</span>
                 </span>
-                <span className="text-[11px] font-mono uppercase text-[#aab5c2] bg-[#151b22] px-2 py-0.5 rounded border border-[#27313d]">
-                  {project.codeSnippet.language}
-                </span>
+                <div className="flex items-center gap-2 shrink-0">
+                  <span className="text-[11px] font-mono uppercase text-[#aab5c2] bg-[#151b22] px-2 py-0.5 rounded border border-[#27313d]">
+                    {project.codeSnippet.language}
+                  </span>
+                  <button
+                    onClick={handleCopySnippet}
+                    aria-label={copiedSnippet ? "Code snippet copied to clipboard" : "Copy code snippet"}
+                    aria-live="polite"
+                    className="flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-mono bg-[#151b22] hover:bg-[#252e3a] text-[#84b8ad] hover:text-[#98c8be] border border-[#27313d] hover:border-[#84b8ad]/40 transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-[#84b8ad]"
+                    title="Copy code to clipboard"
+                  >
+                    {copiedSnippet ? (
+                      <>
+                        <Check className="w-3 h-3 text-[#84b8ad]" />
+                        <span>Copied!</span>
+                      </>
+                    ) : (
+                      <>
+                        <Copy className="w-3 h-3" />
+                        <span>Copy</span>
+                      </>
+                    )}
+                  </button>
+                </div>
               </div>
               <div className="p-4 rounded-xl bg-[#11151b] border border-[#27313d] font-mono text-xs text-[#e9e7e1] overflow-x-auto leading-relaxed">
-                <pre>{project.codeSnippet.code}</pre>
+                <code>
+                  <pre>{project.codeSnippet.code}</pre>
+                </code>
               </div>
             </div>
           )}
