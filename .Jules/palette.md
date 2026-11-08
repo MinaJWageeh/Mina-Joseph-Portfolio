@@ -1,0 +1,3 @@
+## 2026-11-08 - Contact Form Label Association & Screen Reader Feedback
+**Learning:** In Next.js client components using Tailwind and custom styling, form `<label>` tags frequently lack explicit `htmlFor` and input `id` attributes. This breaks click-to-focus behavior for sighted users and leaves inputs unlabeled for assistive technologies. In addition, quick clipboard copy toggles benefit significantly from dynamic `aria-label`s and `aria-live="polite"` spans to announce the updated state to screen readers without shifting focus.
+**Action:** Always link form labels to controls with explicit `htmlFor`/`id` pairs and include `aria-live="polite"` on copy feedback and status messages.
